@@ -21,14 +21,6 @@ const ticketSchema = new Schema({
         ref: 'User', 
         required: true 
     },
-    created_at: { 
-        type: Date, 
-        default: Date.now 
-    },
-    updated_at: { 
-        type: Date, 
-        default: Date.now 
-    },
     messages: [{ 
         type: Schema.Types.ObjectId, 
         ref: 'Message' 
