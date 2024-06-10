@@ -6,6 +6,7 @@ import {
     updateTicketById, 
     deleteTicketById,
     addMessageToTicket,
+    getAllMessagesForTicket
 } from '../controllers/tickets.controller.js';
 
 import { auth, adminAuth } from '../middlewares/auth.middleware.js';
@@ -29,5 +30,8 @@ router.delete('/:id', adminAuth, deleteTicketById);
 
 // Añadir un mensaje a un tiquet
 router.post('/:id/messages', auth, addMessageToTicket);
+
+// Obtener todos los mensajes de un tiquet
+router.get('/:id/messages', auth, getAllMessagesForTicket);
 
 export default router;

@@ -39,7 +39,7 @@ export const getTicketById = async (req, res) => {
         }
         res.status(200).send(ticket);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(404).send(error);
     }
 };
 
@@ -88,5 +88,19 @@ export const addMessageToTicket = async (req, res) => {
         res.status(201).send(message);
     } catch (error) {
         res.status(400).send(error);
+    }
+};
+
+export const getAllMessagesForTicket = async (req, res) => {
+    try {
+
+        const ticketId = req.params.id;
+
+        const messages = await Message.find({ ticket: ticketId });
+
+        res.status(200).send(messages);
+    } catch (error) {
+
+        res.status(500).send(error);
     }
 };
