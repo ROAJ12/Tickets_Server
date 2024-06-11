@@ -11,6 +11,11 @@ const ticketSchema = new Schema({
         required: true,
         maxlength: [150, 'Description cannot be more than 30 characters'] 
     },
+    priority: { 
+        type: String, 
+        enum: ['low', 'medium', 'high'], 
+        default: 'low' 
+    },
     status: { 
         type: String, 
         enum: ['open', 'in progress', 'closed'], 
